@@ -58,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageController.values = ["Hello", "I'm Mark"] // pass values
         pageController.keys = ["type", "text"] // keys
         pageController.title = "Test"
-        pageController.menuBGColor = .clearColor()
+        //for test menuView's frame's orgin.x
+        pageController.menuBGColor = UIColor.brownColor()
         pageController.showOnNavigationBar = true
         //        pageController.selectedIndex = 1
         //        pageController.progressColor = .blackColor()

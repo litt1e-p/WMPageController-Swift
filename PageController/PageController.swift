@@ -378,7 +378,8 @@ public class PageController: UIViewController, UIScrollViewDelegate, MenuViewDel
         menu.fontName = titleFontName
         menu.contentMargin = menuViewContentMargin
         if showOnNavigationBar && (navigationController?.navigationBar != nil) {
-            navigationItem.titleView = menu
+//            navigationItem.titleView = menu //menuView didn't show from origin x when set menuView as titleView
+            navigationController?.navigationBar.addSubview(menu) //menuView show from origin x:0 when setting as subView of navigationBar?
         } else {
             view.addSubview(menu)
         }
