@@ -164,6 +164,28 @@ public class PageController: UIViewController, UIScrollViewDelegate, MenuViewDel
         didEnterController(currentViewController!, atIndex: _selectedIndex)
     }
     
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        guard showOnNavigationBar else {
+            return
+        }
+        if menuView == nil  {
+            resetMenuView()
+        }
+    }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard showOnNavigationBar else {
+            return
+        }
+        for view in (navigationController?.navigationBar.subviews)! {
+            if view.isKindOfClass(MenuView.self) {
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
