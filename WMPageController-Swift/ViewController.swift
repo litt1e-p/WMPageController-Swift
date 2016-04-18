@@ -31,5 +31,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.navigationController?.pushViewController(UIViewController(), animated: true)
+    }
+    
 }
 
