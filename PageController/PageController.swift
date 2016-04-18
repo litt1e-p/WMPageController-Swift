@@ -344,7 +344,8 @@ public class PageController: UIViewController, UIScrollViewDelegate, MenuViewDel
         menu.progressColor = progressColor
         menu.fontName = titleFontName
         if showOnNavigationBar && (navigationController?.navigationBar != nil) {
-            navigationItem.titleView = menu
+//            navigationItem.titleView = menu //menuView didn't show from origin x when set menuView as titleView
+            navigationController?.navigationBar.addSubview(menu) //menuView show from origin x:0 when setting as subView of navigationBar?
         } else {
             view.addSubview(menu)
         }
