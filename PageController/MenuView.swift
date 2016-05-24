@@ -29,12 +29,15 @@ public class MenuView: UIView, MenuItemDelegate {
     override public var frame: CGRect {
         didSet {
             guard contentView != nil else { return }
+// FIXME: - reset contentView's x will cause a bug that contentView won't start from x: 0, remove them and works!
+//            /**
             // Make the contentView center, because system will change menuView's frame if it's a titleView.
             if (contentView.frame.origin.x + contentView.frame.width / 2) != (bounds.origin.x + bounds.width / 2) {
                 var contentFrame = contentView.frame
                 contentFrame.origin.x = bounds.origin.x - (contentFrame.width - bounds.width) / 2
                 contentView.frame = contentFrame
             }
+//            */
         }
     }
     public var leftView: UIView? {

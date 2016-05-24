@@ -18,15 +18,16 @@ class CustomPageController: PageController {
         delegate = self
         preloadPolicy = PreloadPolicy.Neighbour
         menuViewContentMargin = 10
+        showOnNavigationBar = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        menuView?.leftView = customButtonWithTitle("Left")
-        menuView?.rightView = customButtonWithTitle("Right")
-        
+//        menuView?.leftView = customButtonWithTitle("Left")
+        menuView?.rightView = customButtonWithTitle("+")
+        menuView?.backgroundColor = .yellowColor()
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5.0 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             self.vcTitles = ["Test", "Test", "Test", "Test", "Test", "Test"]

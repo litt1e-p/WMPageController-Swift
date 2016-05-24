@@ -79,7 +79,8 @@ class MenuItem: UILabel {
     private func setup() {
         textAlignment = NSTextAlignment.Center
         userInteractionEnabled = true
-        backgroundColor = UIColor.clearColor()
+//        backgroundColor = UIColor.clearColor()
+        backgroundColor = .redColor()
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
