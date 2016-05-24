@@ -177,28 +177,6 @@ public class PageController: UIViewController, UIScrollViewDelegate, MenuViewDel
         didEnterController(currentViewController!, atIndex: _selectedIndex)
     }
     
-    public override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        guard showOnNavigationBar else {
-            return
-        }
-        if menuView == nil  {
-            resetMenuView()
-        }
-    }
-    
-    public override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        guard showOnNavigationBar else {
-            return
-        }
-        for view in (navigationController?.navigationBar.subviews)! {
-            if view.isKindOfClass(MenuView.self) {
-                view.removeFromSuperview()
-            }
-        }
-    }
-    
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -400,8 +378,7 @@ public class PageController: UIViewController, UIScrollViewDelegate, MenuViewDel
         menu.fontName = titleFontName
         menu.contentMargin = menuViewContentMargin
         if showOnNavigationBar && (navigationController?.navigationBar != nil) {
-//            navigationItem.titleView = menu //menuView didn't show from origin x when set menuView as titleView
-            navigationController?.navigationBar.addSubview(menu) //menuView show from origin x:0 when setting as subView of navigationBar?
+            navigationItem.titleView = menu
         } else {
             view.addSubview(menu)
         }
